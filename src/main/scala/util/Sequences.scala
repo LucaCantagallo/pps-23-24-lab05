@@ -31,6 +31,12 @@ object Sequences: // Essentially, generic linkedlists
         case Cons(h, t) => Cons(h, t.concat(other))
         case _ => other
 
+      def add(element: A): Sequence[A] = Sequence[A](element).concat(sequence)
+
+      def size(numberOfElements: Int): Int = sequence match
+        case Cons(element, tail) => tail.size(numberOfElements+1)
+        case Nil() => numberOfElements
+
       def flatMap[B](f: A => Sequence[B]): Sequence[B] = sequence match
         case Cons(h, t) => f(h).concat(t.flatMap(f))
         case _ => Nil()

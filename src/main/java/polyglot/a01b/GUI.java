@@ -22,7 +22,7 @@ public class GUI extends JFrame {
         ActionListener al = (e)->{
             final JButton bt = (JButton)e.getSource();
             final Pair<Integer,Integer> p = buttons.get(bt);
-            //System.out.println("hit "+p);
+            System.out.println("hit "+p);
             Optional<Integer> result = logics.hit(p.getX(), p.getY());
             if (result.isPresent() && !logics.won()) {
                 bt.setText(String.valueOf(result.get()));
