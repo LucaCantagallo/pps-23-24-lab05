@@ -35,6 +35,6 @@ class LogicsImpl(private val size: Int, private val mines: Int) extends Logics:
       _cells = _cells.filter(_!=Position(x,y))
       OptionToOptional(ScalaOptional.Just(_cells.filter(pos => pos.x >= 0 && pos.y >= 0 && pos.x < _gameSize && pos.y < _gameSize)
       .filter(pos => pos.x >= x-1 && pos.y >= y-1 && pos.x <= x+1 && pos.y <= y+1)
-      .filter(pos => _mines.contains(pos)).size(0)))
+      .filter(pos => _mines.contains(pos)).size()))
 
   def won = _cells.size(0) == _mines.size(0)

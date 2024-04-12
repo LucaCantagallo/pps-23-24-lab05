@@ -33,7 +33,7 @@ object Sequences: // Essentially, generic linkedlists
 
       def add(element: A): Sequence[A] = Sequence[A](element).concat(sequence)
 
-      def size(numberOfElements: Int): Int = sequence match
+      def size(numberOfElements: Int = 0): Int = sequence match
         case Cons(element, tail) => tail.size(numberOfElements+1)
         case Nil() => numberOfElements
 
